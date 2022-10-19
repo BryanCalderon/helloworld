@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotToHome() {
-        Intent intent = new Intent(this, HomeActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, empleado.getNombre());
+        Intent intent = new Intent(this, IconsActivity.class);
+//        intent.putExtra(EXTRA_MESSAGE, empleado.getNombre());
         startActivity(intent);
     }
 
@@ -66,23 +66,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginUser(InputEmp inputEmp) {
-        Call<Empleado> empleadoCall = ApiClient.getUserService().login(inputEmp);
-
-        empleadoCall.enqueue(new Callback<Empleado>() {
-            @Override
-            public void onResponse(Call<Empleado> call, Response<Empleado> response) {
-                System.out.println("response.isSuccessful > " + response.isSuccessful());
-                System.out.println(response.body());
-                if (response.isSuccessful()) {
-                    empleado = response.body();
+//        Call<Empleado> empleadoCall = ApiClient.getUserService().login(inputEmp);
+//
+//        empleadoCall.enqueue(new Callback<Empleado>() {
+//            @Override
+//            public void onResponse(Call<Empleado> call, Response<Empleado> response) {
+//                System.out.println("response.isSuccessful > " + response.isSuccessful());
+//                System.out.println(response.body());
+//                if (response.isSuccessful()) {
+//                    empleado = response.body();
                     gotToHome();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Empleado> call, Throwable t) {
-                System.out.println("FALLO > " + t.getLocalizedMessage());
-            }
-        });
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Empleado> call, Throwable t) {
+//                System.out.println("FALLO > " + t.getLocalizedMessage());
+//            }
+//        });
     }
 }
